@@ -12,6 +12,6 @@ const dataFormatter = new Intl.DateTimeFormat('en-US', options);
 
 const now = () => `[${dataFormatter.format(Date.now())}]`;
 
-export default function log(...parameters) {
-  console.log(now(), ...parameters);
-}
+const log = (...parameters) => console.log(now(), ...parameters);
+
+export default log;

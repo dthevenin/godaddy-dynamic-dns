@@ -4,7 +4,7 @@
   "description": "Personal dynamic DNS for domains hosted at GoDaddy",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/index.mjs",
+    "start": "node --no-warnings ./src/index.mjs ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
