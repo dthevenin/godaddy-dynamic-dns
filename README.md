@@ -16,17 +16,23 @@ The script has been tested using Node 6.x, though any version that supports ES6 
 3. Request _Production_ GoDaddy API Key and Secret for your account from [GoDaddy Developer Portal](https://developer.godaddy.com/keys/)
 4. Create `auth.json` file in the root local repository directory, containing the following (consult auth.json.sample):
 
-    ```
+    ```json
     {
       "key": "[your GoDaddy API Key]",
-      "secret": "[your GoDaddy API Secret]",
-      "domain": "[your domain name, ex: foo.com]",
-      "host": ["your host(s)",  ex: ["www"] or ["www", "api"]] 
+      "secret": "[your GoDaddy API Secret]"
     }
     ```
-    
+update file config with the domain and host
+
+   ```json
+   {
+     "domain": "[your domain name, ex: foo.com]",
+     "host": ["host1", "host2"]
+   }
+   ```
+
 5. Run `npm install` in the root local repository.
-6. Execute this script via `npm start`, or `node ./src/index.js`.
+6. Execute this script via `npm start`, or `node ./src/index.mjs`.
 7. Repeat the execution periodically, using cron job or other task schedulers.
 
 ## Notes and Disclaimer
@@ -43,11 +49,16 @@ The script has been tested using Node 6.x, though any version that supports ES6 
     ```
     {
       "key": "[your GoDaddy API Key]",
-      "secret": "[your GoDaddy API Secret]",
-      "domain": "[your domain name, ex: foo.com]",
-      "host": ["your host(s)",  ex: ["www"] or ["www", "api"]]
+      "secret": "[your GoDaddy API Secret]"
     }
     ```
+   update file config.json with the domain and host
+   ```json
+   {
+     "domain": "[your domain name, ex: foo.com]",
+     "host": ["host1", "host2"]
+   }
+   ```
 5. Run Docker build:
 
     ```

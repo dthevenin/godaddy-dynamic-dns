@@ -4,7 +4,7 @@
   "description": "Personal dynamic DNS for domains hosted at GoDaddy",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/index.js",
+    "start": "node ./src/index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,10 +16,10 @@
   "bugs": {
     "url": "https://github.com/cinupina/godaddy-dynamic-dns/issues"
   },
+  "engines" : { "node" : ">=16.0.0" },
+  "type": "module",
   "homepage": "https://github.com/cinupina/godaddy-dynamic-dns#readme",
   "dependencies": {
-    "async": "^2.0.1", 
-    "moment": "^2.17.1",
-    "request": "^2.79.0"
+    "node-fetch": "^3.3.2"
   }
 }
