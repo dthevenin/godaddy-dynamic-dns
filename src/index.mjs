@@ -17,11 +17,11 @@ async function check(domain, hosts) {
     throw new Error(`There are no DNS records found for ${hostname}`);
   }
   await Promise.all(records.map(async record => {
-    let hostname = `${record.host}.${domain}`;
-    log(`Checking ${hostname}...`);
-
     const response = record[0];
     const host = response.name;
+
+    let hostname = `${host}.${domain}`;
+    log(`Checking ${hostname}...`);
 
     if (response.type !== 'A') {
       throw new Error(`Unexpected Type record ${response.type} returned for ${hostname}`);
