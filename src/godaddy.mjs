@@ -3,10 +3,10 @@ import config from '../config.json' assert { "type": "json" }
 import fetch from "node-fetch";
 
 async function requestApi(method, path, data, isJson) {
-  const headers = { 'Authorization': `sso-key ${auth.key}:${auth.secret}` };
-  // if (isJson) {
-    headers['Content-Type'] = 'application/json';
-  // }
+  const headers = {
+    'Authorization': `sso-key ${auth.key}:${auth.secret}`,
+    'Content-Type': 'application/json'
+  };
   const uri = config.godaddy + path;
   const options = {
     method: method,
@@ -19,7 +19,7 @@ async function requestApi(method, path, data, isJson) {
 
   if (response.status !== 200) {
     console.dir(response);
-    throw new Error(`Request Failed. Status Code: ${response.statusCode}`);
+    throw new Error(`Request Failed. Status: ${response.status} / ${response.statusText}`);
   }
 
   return isJson ? response.json() : response.text();

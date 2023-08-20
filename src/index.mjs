@@ -6,7 +6,11 @@ import config from '../config.json' assert { "type": "json" }
 
 async function getPublicIp(config) {
   const response = await fetch(config.ipify);
-  return (await response.json()).ip;
+  const data = await response.json();
+  if (!data.ip) {
+    throw new Error(`Unsupported data format: ${data}`)
+  }
+  return data.ip;
 }
 
 async function check(domain, hosts) {
@@ -14,7 +18,7 @@ async function check(domain, hosts) {
   const records = await getDnsRecords(domain, hosts);
 
   if (!records || !records.length) {
-    throw new Error(`There are no DNS records found for ${hostname}`);
+    throw new Error(`There are no DNS records found for ${hosts} on domain ${domain}`);
   }
   await Promise.all(records.map(async record => {
     const response = record[0];
