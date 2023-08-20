@@ -1,6 +1,6 @@
 {
   "ipify": "https://api.ipify.org/?format=json",
   "godaddy": "https://api.godaddy.com",
-  "domain": "thevenin.jp",
-  "host": ["home"]
+  "domain": "XXX",
+  "host": ["host1", "host2"]
 }
